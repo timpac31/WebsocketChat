@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+
+.messageBox { width:550px; height:500px; }
+.mt-30 { margin-top:30px; }
+
+select.multiList { width:340px; height:200px; }
+
+#inputMessage { width:500px; float:left; }

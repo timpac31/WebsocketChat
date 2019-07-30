@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Websocket Simple Chat</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/js/app.js"></script>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">자바스크립트를 지원하지 않는 브라우저입니다. 자바스크립트를 다시 로드한 후 시도해보세요</h2></noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                    </button>
+                </div>
+            </form>
+        </div>        
+    </div>
+    
+    <div class="container mt-30">
+	    <div class="row mt-8">
+	        <div class="col-12 col-md-8">
+	            <textarea id="messageBox" class="messageBox"></textarea><br/>
+	            <input type="text" id="inputMessage"  class="form-control" /><button id="sendBtn" class="btn btn-info">전송</button><br/>
+	            <button id="exitBtn" class="btn btn-default">방 나가기</button>
+	        </div>
+	        <div class="col-6 col-md-4">
+	        	<h4>채팅방 목록</h4>
+	        	<button id="createRoom" class="btn btn-default">방 만들기</button>
+	        	<button id="enterRoom" class="btn btn-default">입장</button>
+	        	<button id="refreshRoom" class="btn btn-default">새로고침</button>
+		    	<select multiple class="form-control multiList" id="chatRoomList">
+			    </select>
+			    
+			    <h4>유저 목록</h4>
+		    	<select multiple class="form-control multiList" id="userList">
+			    </select>
+		    </div>
+	    </div>
+    </div>
+    
+ 
+</div>
+</body>
+</html>
