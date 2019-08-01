@@ -28,7 +28,7 @@ public class ChatRoomRepository {
 	}
 	
 	public ChatRoom getChatRoom(String name) {
-		return chatRoomList.stream().filter(c -> name.equals(c.getName())).findFirst().get();
+		return chatRoomList.stream().filter(c -> name.equals(c.getName())).findFirst().orElse(new ChatRoom(""));
 	}
 	
 	public List<String> getUserListInRoom(String name) {

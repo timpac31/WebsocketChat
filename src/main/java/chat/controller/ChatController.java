@@ -7,6 +7,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import chat.domain.ChatMessage;
@@ -62,6 +63,12 @@ public class ChatController {
     @GetMapping("/rooms")
     public List<ChatRoom> getRoomList() {
     	return roomRepository.getChatRoomList();
+    }
+    
+    @ResponseBody
+    @GetMapping("/room")
+    public ChatRoom getRoom(@RequestParam("roomName") String roomName) {
+    	return roomRepository.getChatRoom(roomName);
     }
 	
     @ResponseBody

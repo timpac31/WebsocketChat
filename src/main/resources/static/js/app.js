@@ -35,7 +35,7 @@ function disconnect() {
     console.log('Disconnected');
 }
 
-function subscribe() {
+async function subscribe() {
 	stompClient.subscribe('/topic/chat/room/' + roomId, function(chatMessage) {
 		var msgBody = JSON.parse(chatMessage.body);
 		if(msgBody.action == "enter_room" || msgBody.action == "exit_room") {
@@ -56,15 +56,16 @@ function createRoom() {
 		return;
 	}
 	roomId = prompt("방 이름을 입력하세요");
+	if(roomId == null) return;
 	if(roomId == "") {
 		alert("방 이름을 입력하세요");
 		return;
 	}
-	//TODO: 방이름 중복체크
 	
 	//TODO: subscribe -> send 동기화
-	subscribe();
-	stompClient.send('/app/chat/createRoom', {}, JSON.stringify({action: 'createRoom', roomId: roomId, userId: userId}));
+	subscribe().then(function() {
+		stompClient.send('/app/chat/createRoom', {}, JSON.stringify({action: 'createRoom', roomId: roomId, userId: userId}));
+	});
 }
 
 function enterRoom() {

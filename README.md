@@ -19,6 +19,8 @@ $ java -jar target/WebsocketChat-0.0.1-SNAPSHOT.jar
 Spring boot, Websocket, stompJs
 
 # TODO
-+ 방이름, 아이디 중복체크
++ 아이디 중복체크
 + 방만들기: subscribe -> send 동기화
-+ 등등.. 
++ 인원없을 때 방 삭제
++ 커넥션 후 방리스트 새로고침
++ .... 
